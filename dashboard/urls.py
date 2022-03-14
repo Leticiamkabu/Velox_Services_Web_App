@@ -8,7 +8,7 @@ app_name = 'dashboard'
 
 urlpatterns = [
     path('admin_dashboard/',admin_dashboard_view, name = "admin_dashboard"),
-    # path('test/',testing, name = "t")
+    path('base/',testing, name = "t")
 
     
     
