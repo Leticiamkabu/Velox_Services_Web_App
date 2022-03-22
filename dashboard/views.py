@@ -7,4 +7,4 @@ def admin_dashboard_view(request):
     
 
 def testing(request):
-    return render(request, "base/base.html")
+    return render(request, "test/test.html")
