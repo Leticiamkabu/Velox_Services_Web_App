@@ -3,7 +3,7 @@ from .models import *
 from django.contrib.auth.models import *
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 
-
+# the default fileds provided by django for user registeration
 class UserSignUp(UserCreationForm):
     first_name  = forms.CharField(max_length=100, widget=forms.TextInput(
         attrs={'placeholder': 'Enter your first name', 'class':'form-control'}))
