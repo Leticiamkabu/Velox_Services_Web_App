@@ -1,0 +1,80 @@
+{% extends 'service_provider\service_provider_page.html' %}
+{% load static %}
+
+{% block dname%}All Services{%endblock%}
+{% block serviceProvider %}
+ <!-- start of create profile -->
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Services</h4>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th> Service Name </th>
+                <th> Description </th>
+                <th> Last Update </th>
+                <th> Tracking ID </th>
+                <th> Actions </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <img src="{% static 'assets/images/faces/face1.jpg' %}" class="me-2" alt="image"> Washing
+                </td>
+                <td> Fund is not recieved </td>
+                <td> Dec 5, 2017 </td>
+                <td> WD-12345 </td>
+                <td>
+                  <i class="mdi mdi-pencil" style="color: rgb(27,207,180); font-size: 1.5rem;"></i>
+                  <i class="mdi mdi-minus-circle" style="color: rgb(254,116,150); font-size: 1.5rem;"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="{% static 'assets/images/faces/face2.jpg' %}" class="me-2" alt="image"> Gargening
+                </td>
+                <td> High loading time </td>
+                <td> Dec 12, 2017 </td>
+                <td> WD-12346 </td>
+                <td>
+                    <i class="mdi mdi-pencil" style="color: rgb(27,207,180); font-size: 1.5rem;"></i>
+                    <i class="mdi mdi-minus-circle" style="color: rgb(254,116,150); font-size: 1.5rem;"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="{% static 'assets/images/faces/face3.jpg' %}" class="me-2" alt="image"> Car Mechanic
+                </td>
+                <td> Website down for one week </td>
+                <td> Dec 16, 2017 </td>
+                <td> WD-12347 </td>
+                <td>
+                    <i class="mdi mdi-pencil" style="color: rgb(27,207,180); font-size: 1.5rem;"></i>
+                    <i class="mdi mdi-minus-circle" style="color: rgb(254,116,150); font-size: 1.5rem;"></i>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="{% static 'assets/images/faces/face4.jpg' %}" class="me-2" alt="image"> Cooking
+                </td>
+                <td> Loosing control on server </td>
+                <td> Dec 3, 2017 </td>
+                <td> WD-12348 </td>
+                <td>
+                    <i class="mdi mdi-pencil" style="color: rgb(27,207,180); font-size: 1.5rem;"></i>
+                    <i class="mdi mdi-minus-circle" style="color: rgb(254,116,150); font-size: 1.5rem;"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
