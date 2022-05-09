@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-# from .models import *
+from .models import *
 from .forms import *
 
 # from .models import Movie
@@ -31,7 +31,12 @@ def service_provider_dashboard_view(request):
 
 
 def all_services(request):
-    return render(request, 'service_provider/view_services.html')
+    display = Create_Service.objects.all()
+    context = {
+        'display': display,
+    }
+
+    return render(request, 'service_provider/view_services.html', context)
 
 def service_provider_dashboard(request):
     return render(request, 'service_provider/service_provider_dashboard.html')
