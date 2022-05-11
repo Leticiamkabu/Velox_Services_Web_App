@@ -33,9 +33,14 @@
                   <a href = "{% url 'main:update_service'%}" >
                     <i class="mdi mdi-pencil" style="color: rgb(27,207,180); font-size: 1.5rem;" ></i>
                   </a>
-                  <a>
-                    <i class="mdi mdi-minus-circle" style="color: rgb(254,116,150); font-size: 1.5rem;"></i>
-                  </a>
+                  <!-- for deleting the service -->
+                  <form action = "{% url 'main:delete_service' view_service.id %}"method = "POST" class = "d-inline">
+                    {% csrf_token %}
+                    <button type = "submit" class = "btn">
+                        <i class="mdi mdi-minus-circle" style="color: rgb(254,116,150); font-size: 1.5rem;"></i>
+                    </button>
+                  </form>
+                  
                  
                 </td>
               </tr>

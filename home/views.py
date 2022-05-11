@@ -8,7 +8,7 @@ from .forms import *
 
 def index(request):
     return render(request, 'home/index.html')
-    
+
 # user section
 def user_dashboard_view(request):
     return render(request, 'user/user_page.html')
@@ -59,8 +59,9 @@ def update_service_view(request):
     
     return render(request, 'service_provider/service_provider_page.html')
 
-def delete_service_view(request):
-
+def delete_service_view(request, id):
+    service_created = Create_Service.objects.get(pk=id)
+    service_created.delete()
     return render(request,'service_provider/view_services.html')
 
 
