@@ -86,7 +86,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <a class="nav-link" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal"  >
           <span class="menu-title">Create Service</span>
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
@@ -135,6 +135,9 @@
         </nav>
       </div>
 
+    
+
+
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -146,8 +149,7 @@
             <div class="modal-body">
               <div class="card-body">
                 <h2 class="title">Ad Registration</h2>
-                
-                  <form method="POST" enctype="multipart/form-data">
+                  <form method="POST" enctype="multipart/form-data" id = "form-raw-material">
                     <!-- For checking errors -->
                     {% if form.errors %}
                     {% for field in form %}
@@ -155,8 +157,6 @@
                         {% for error in field.errors %}
                             <div class="alert alert-danger">
                                 <strong>{{ error|escape }}</strong>
-                                
-                                
                             </div>
                         {% endfor %}
                     {% endfor %}
@@ -250,6 +250,7 @@
           </div>
         </div>
       </div>
+      
 
       {% block serviceProvider %}
 
@@ -265,3 +266,5 @@
 </div>
 
 {% endblock %}
+
+

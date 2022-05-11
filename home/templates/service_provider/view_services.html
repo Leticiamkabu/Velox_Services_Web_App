@@ -27,11 +27,16 @@
                   <img src="{{view_service.image.url}}" class="me-2" alt="image"> {{view_service.category}}
                 </td>
                 <td> {{view_service.description}}</td>
-                <td> not found</td>
+                <td> {{view_service.date_updated}}</td>
                 <td> not found </td>
                 <td>
-                  <i class="mdi mdi-pencil" style="color: rgb(27,207,180); font-size: 1.5rem;"></i>
-                  <i class="mdi mdi-minus-circle" style="color: rgb(254,116,150); font-size: 1.5rem;"></i>
+                  <a href = "{% url 'main:update_service'%}" >
+                    <i class="mdi mdi-pencil" style="color: rgb(27,207,180); font-size: 1.5rem;" ></i>
+                  </a>
+                  <a>
+                    <i class="mdi mdi-minus-circle" style="color: rgb(254,116,150); font-size: 1.5rem;"></i>
+                  </a>
+                 
                 </td>
               </tr>
             {% endfor %}
@@ -80,3 +85,4 @@
 </div>
 
 {% endblock %}
+

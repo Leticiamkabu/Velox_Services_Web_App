@@ -4,8 +4,8 @@ from .forms import *
 from django import forms
 
 Category =[
-        ('lv','Love'),
-        ('ht', 'Hate'),
+        ('LV','Love'),
+        ('HV', 'Hate'),
 ]
 class Create_ServiceForm(ModelForm):
     service_name = forms.CharField(max_length = 100, widget = forms.TextInput(attrs = {"class": "form-control", "placeholder": "Service name"}))
