@@ -16,6 +16,7 @@ urlpatterns = [
     path('service_provider_profile/',service_provider_profile, name = "service_provider_profile"),
 
     path('edit_service/',update_service_view, name = "update_service"),
-    path('service_deleted/<int:id>/',delete_service_view, name = "delete_service")
+    path('service_deleted/<int:id>/',delete_service_view, name = "delete_service"),
+    # path('create_service_form/',form_view, name = "form_display"),
     
 ]
