@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
 from .models import *
 from .forms import *
 
@@ -10,8 +11,23 @@ def index(request):
     return render(request, 'home/index.html')
 
 # user section
+def user_page_view(request):
+    return render(request, 'user/user_main_page.html')
+
 def user_dashboard_view(request):
-    return render(request, 'user/user_page.html')
+    service_view = Create_Service.objects.all()
+    context = {
+        'service_view': service_view,
+    }
+    return render(request, 'user/user_dashboard_page.html', context)
+
+def service_requested_view(request):
+    return render(request, 'user/service_requested.html')
+
+def user_profile_view(request):
+    return render(request, 'user/user_profile.html')
+
+
 
 # service provider section
 def service_provider_dashboard_view(request):
@@ -143,7 +159,7 @@ def update_service_view(request):
                 print(i.errors)
     
     
-    return render(request, 'service_provider/service_provider_page.html')
+    return render(request, 'service_provider/service_provider_page.html', {'form':form})
 
 
 def delete_service_view(request, id):
@@ -152,6 +168,12 @@ def delete_service_view(request, id):
     service_created.delete()
     return render(request,'service_provider/view_services.html')
 
+
+
+
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('home/index.html')
 
 # # def form_view(request):
 #     form = Create_ServiceForm()

@@ -8,7 +8,12 @@ app_name = 'main'
 
 urlpatterns = [
     path('',index, name = "home"),
+    path('user_page/',user_page_view, name = "user_page"),
     path('user_dashboard/',user_dashboard_view, name = "user_dashboard"),
+    path('service_requested_dashboard/',service_requested_view, name = "service_requested"),
+    path('user_profile/',user_profile_view, name = "user_profile"),
+
+    # service provider section
     path('service_provider_dashboard/',service_provider_dashboard_view, name = "service_provider_dashboard"),
     path('all_services/',all_services, name = "all_services"),
     path('service_provider/',service_provider_dashboard, name = "service_provider"),
@@ -18,5 +23,7 @@ urlpatterns = [
     path('edit_service/',update_service_view, name = "update_service"),
     path('service_deleted/<int:id>/',delete_service_view, name = "delete_service"),
     # path('create_service_form/',form_view, name = "form_display"),
+    
+    path('logout/',user_logout, name = "logout")
     
 ]

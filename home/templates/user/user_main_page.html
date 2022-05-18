@@ -22,7 +22,7 @@
           <div class="input-group-prepend bg-transparent">
             <i class="input-group-text border-0 mdi mdi-magnify"></i>
           </div>
-          <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
+          <input type="text" class="form-control bg-transparent border-0" placeholder="Search Services">
         </div>
       </form>
     </div>
@@ -39,11 +39,11 @@
           </div>
         </a>
         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-          <a class="dropdown-item" href="{% url 'main:service_provider_profile'%}">
+          <a class="dropdown-item" href="{% url 'main:user_profile' %}">
             <i class="mdi mdi-cached me-2 text-success"></i> View Profile </a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{% url 'main:logout' %}">
-            <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+            <i class="mdi mdi-logout me-2 text-primary" ></i> Sign out </a>
         </div>
       </li>
       <li class="nav-item d-none d-lg-block full-screen-link">
@@ -79,30 +79,30 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'main:service_provider'%}">
+        <a class="nav-link" href="{% url 'main:user_dashboard' %}">
           <span class="menu-title">Dashboard</span>
           <i class="mdi mdi-home menu-icon"></i>
         </a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#exampleModal"  >
           <span class="menu-title">Create Service</span>
           <i class="mdi mdi-contacts menu-icon"></i>
         </a>
-      </li>
+      </li> -->
 
 
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-          <span class="menu-title">Service</span>
+          <span class="menu-title"> Service Requested </span>
           <i class="menu-arrow"></i>
           <i class="mdi mdi-crosshairs-gps menu-icon"></i>
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{% url 'main:all_services'%}">View Services</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{% url 'main:user_requests'%}">User Requests</a>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'main:service_requested'%}">View Services Requested</a></li>
+            <!-- <li class="nav-item"> <a class="nav-link" href="{% url 'main:user_requests'%}">User Requests</a> -->
             </li>
           </ul>
         </div>
