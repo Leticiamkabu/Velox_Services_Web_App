@@ -20,7 +20,7 @@ class UserSignUp(UserCreationForm):
     password2 = forms.CharField(max_length=200, label = 'Confirm Password', widget=forms.PasswordInput(
         attrs={'placeholder': 'Confirm password', 'class':'form-control'}))
         
-    email = forms.EmailField( widget= forms.EmailInput(
+    email = forms.EmailField( max_length=200, widget= forms.EmailInput(
         attrs={'placeholder': 'Enter your email', 'class':'form-control'}))
     
     
@@ -35,19 +35,19 @@ class UserSignUp(UserCreationForm):
 class UserRegForm(forms.ModelForm):
     username = forms.CharField(widget=forms.TextInput(
         attrs = {'class':'form-control','placeholder':'Username'}
-    ), required = True, max_length = 50)
+    ), required = True, max_length = 500)
 
     email = forms.CharField(widget = forms.EmailInput(
         attrs = {'class':'form-control','placeholder':'Email'}
-    ), required = True, max_length = 50)
+    ), required = True, max_length = 500)
 
     password = forms.CharField(widget = forms.PasswordInput(
         attrs = {'class':'form-control','placeholder':'Password'}
-    ), required = True, max_length = 50)
+    ), required = True, max_length = 500)
 
     password2 = forms.CharField(widget = forms.PasswordInput(
         attrs = {'class':'form-control','placeholder':'Password'}
-    ), required = True, max_length = 50)
+    ), required = True, max_length = 500)
 
     class Meta():
         model = User
@@ -57,15 +57,15 @@ class UserRegForm(forms.ModelForm):
 class ServiceProviderRegForm(forms.ModelForm):
     username = forms.CharField(widget=forms.TextInput(
         attrs = {'class':'form-control','placeholder':'Username'}
-    ), required = True, max_length = 50)
+    ), required = True, max_length = 500)
 
     email = forms.CharField(widget = forms.EmailInput(
         attrs = {'class':'form-control','placeholder':'Email'}
-    ), required = True, max_length = 50)
+    ), required = True, max_length = 500)
 
     password = forms.CharField(widget = forms.PasswordInput(
         attrs = {'class':'form-control','placeholder':'Password'}
-    ), required = True, max_length = 50)
+    ), required = True, max_length = 500)
 
     # password2 = forms.CharField(widget = forms.PasswordInput(
     #     attrs = {'class':'form-control','placeholder':'Password'}

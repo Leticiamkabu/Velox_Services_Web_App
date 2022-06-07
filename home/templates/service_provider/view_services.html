@@ -17,7 +17,7 @@
                 <th> Description </th>
                 <th> Last Update </th>
                 <th> Tracking ID </th>
-                <th> Actions </th>
+                
               </tr>
             </thead>
             {% for view_service in display %}
@@ -28,11 +28,15 @@
                 </td>
                 <td> {{view_service.description}}</td>
                 <td> {{view_service.date_updated}}</td>
-                <td> not found </td>
+                <td>svc-0{{view_service.id}} </td>
                 <td>
-                  <a href = "{% url 'main:update_service'%}" >
-                    <i class="mdi mdi-pencil" style="color: rgb(27,207,180); font-size: 1.5rem;" ></i>
-                  </a>
+                  <form action="{% url 'main:update_service' view_service.id %}" method="POST" class = "d-inline">
+                    {% csrf_token %}
+                      <button type = "submit" class = "btn">
+                        <i class="mdi mdi-pencil" style="color: rgb(27,207,180); font-size: 1.5rem;" ></i>
+                      </button>
+                  </form>
+                  
                   <!-- for deleting the service -->
                   <form action = "{% url 'main:delete_service' view_service.id %}"method = "POST" class = "d-inline">
                     {% csrf_token %}
