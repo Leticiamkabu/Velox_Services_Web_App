@@ -33,3 +33,19 @@ class Service_provider_pic_Form(forms.ModelForm):
     class Meta:
         model = Service_provider
         fields = ['id', 'image2']
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+    
+class Request_ServiceForm(ModelForm):
+    id = models.CharField(primary_key = True, max_length = 200)
+    customer_name = forms.CharField(max_length = 100, widget = forms.TextInput(attrs = {"class": "form-control", "placeholder": "User name"}))
+    phone_number = forms.CharField( widget = forms.TextInput(attrs = {"class": "form-control", "placeholder": "Phone number"}))
+    location = forms.CharField(max_length = 100, widget = forms.TextInput(attrs = {"class": "form-control", "placeholder": "Location"}))
+    name_of_service_requested = forms.CharField(max_length = 100, widget = forms.TextInput(attrs = {"class": "form-control", "placeholder": "Name of service requested"}))
+    day_for_the_service = forms.DateField(widget=DateInput( format='%d/%m/%Y' ,attrs = {"class": "form-control", "placeholder": "Day the service is needed"}))
+    
+    class Meta:
+        model = Request_service
+        fields = '__all__'

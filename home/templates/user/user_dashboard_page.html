@@ -5,7 +5,7 @@
 {% block serviceProvider %}
 
 <div class= "container"> 
-<div class="row">
+  <div class="row">
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -32,7 +32,9 @@
                               </a>
                           </div>
                           <h4> {{service_display.service_name}}</h4>
-                          <button type="button" onclick="alert('You pressed the button!')" href = "" >Request Service</button>
+                          <a class="nav-link" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#request_service_form"  >
+                            <button type="button" href = "#" >Request Service</button>
+                          </a>
                           <button type="button" onclick="alert('You pressed the button!')" href = "" >View Service Details</button>
                       </div>
 
@@ -43,31 +45,45 @@
             <div>
 
                 <!-- Modal for request service -->
-            <div class="modal fade" id="request_service" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="request_service_form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                    <div class="modal-content" style="width: 130%;">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Request Service</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
+                  <div class="modal-content" style="width: 130%;">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Request Service</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body">
-                        <div class="card-body">
+                      <div class="card-body">
                             <!-- <h2 class="title">Ad Registration</h2> -->
                      
-                            <div>
-
-                            </div>
+                        <form method="POST"  enctype="multipart/form-data" id = "form-raw-material">
+                          <!-- For checking errors -->
+                              {% if form.errors %}
+                              {% for field in form %}
+                              <h3>{{field}}</h3>
+                                  {% for error in field.errors %}
+                                      <div class="alert alert-danger">
+                                          <strong>{{ error|escape }}</strong>
+                                      </div>
+                                  {% endfor %}
+                              {% endfor %}
+                              {% endif %}
+                          {% csrf_token %}
+                          {{request_form.as_p}}
+                        
                       
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Request </button>
-                                <button type="submit" class="btn btn-primary" id = "create_service">Cancle</button>
-                            </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" id = "request_service">Request </button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                          </div>
+
+                        </form>
     
                 
-                        </div>
+                      </div>
                     </div>
                 
-                    </div>
+                  </div>
                 </div>
             </div>
               
@@ -93,6 +109,7 @@
 </div>
 </div>
 
+ 
 {% endblock %}
 
 <!-- <div class="row">

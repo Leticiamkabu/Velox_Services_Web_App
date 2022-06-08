@@ -12,6 +12,7 @@ urlpatterns = [
     path('user_dashboard/',user_dashboard_view, name = "user_dashboard"),
     path('service_requested_dashboard/',service_requested_view, name = "service_requested"),
     path('user_profile/',user_profile_view, name = "user_profile"),
+    path('user_request_deleted/<int:id>/',delete_user_request_view, name = "delete_user_request"),
 
     # service provider section
     path('service_provider_dashboard/',service_provider_dashboard_view, name = "service_provider_dashboard"),
