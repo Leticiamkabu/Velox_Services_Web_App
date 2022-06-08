@@ -16,14 +16,43 @@ def user_page_view(request):
     return render(request, 'user/user_main_page.html')
 
 def user_dashboard_view(request):
+
     service_view = Create_Service.objects.all()
+    request_form = Request_ServiceForm()
+    if request.method == 'POST':
+        request_form = Request_ServiceForm(request.POST, request.FILES)
+        if request_form.is_valid():
+            #this saves the form
+            request_form.save()
+            # this refreshes the form
+            return redirect('/user_dashboard')
+
+        else:
+            print("\n\n\n\n\n\n")
+            print(request_form.errors)
+            for i in request_form:
+                print(i.label)
+                print(i.errors)
+    
+    
+
+
     context = {
         'service_view': service_view,
+        'request_form': request_form,
     }
     return render(request, 'user/user_dashboard_page.html', context)
 
 def service_requested_view(request):
-    return render(request, 'user/service_requested.html')
+    requested_services = Request_service.objects.all()
+
+
+    context = {
+        'requested_services': requested_services,
+        
+    }
+    return render(request, 'user/service_requested.html', context)
+
 
 def user_profile_view(request):
     if request.method == 'POST':
@@ -38,10 +67,18 @@ def user_profile_view(request):
     return render(request, 'user/user_profile.html')
 
 
+def delete_user_request_view(request, id = 0):
+   
+    service_requested = Request_service.objects.get(pk=id)
+
+    service_requested.delete()
+
+    return render(request,'user/service_requested.html')
+
 
 # service provider section
 def service_provider_dashboard_view(request):
-
+    count_services = Create_Service.objects.all().count()
     form = Create_ServiceForm()
     if request.method == 'POST':
         form = Create_ServiceForm(request.POST, request.FILES)
@@ -58,8 +95,12 @@ def service_provider_dashboard_view(request):
                 print(i.label)
                 print(i.errors)
     
+    context = {
+        'form': form,
+        'count_services': count_services,
+    }
 
-    return render(request, 'service_provider/service_provider_dashboard.html', {'form':form} )
+    return render(request, 'service_provider/service_provider_dashboard.html', context )
 
 
 def all_services(request):
@@ -109,7 +150,8 @@ def all_services(request):
     # return render(request, 'service_provider/service_provider_dashboard.html', {'form':form})
 
 def user_requests(request):
-
+    #do this after you deal with the user requests section
+    # count_user_request = 
     form = Create_ServiceForm()
     if request.method == 'POST':
         form = Create_ServiceForm(request.POST, request.FILES)
@@ -129,6 +171,15 @@ def user_requests(request):
     return render(request, 'service_provider/user_requests.html',{'form':form})
 
 def service_provider_profile(request):
+    if request.method == 'POST':
+        pic = Service_provider_pic_Form(request.POST, request.FILES)
+
+        if pic.is_valid():
+            pic.save()
+            return render(request, 'user/user_profile.html')
+        else:
+            pic = Service_provider_pic_Form()
+
 
     form = Create_ServiceForm()
     if request.method == 'POST':

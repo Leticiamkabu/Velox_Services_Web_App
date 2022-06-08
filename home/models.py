@@ -23,6 +23,7 @@ class Create_Service(models.Model):
         ('Carpentry', 'Carpentry'),
         ('Tailoring','Tailoring'),
         ('Construction Work','Construction Work'),
+        ('House Keeping', 'House Keeping'),
     )
     category = models.CharField(max_length = 100, choices = Category )
     email = models.EmailField(max_length = 100)
@@ -44,3 +45,16 @@ class Service_provider(models.Model):
     def __str__(self):
         return self.id
 
+
+
+class Request_service(models.Model):
+    # id = models.CharField(primary_key = True, max_length = 200)
+    customer_name = models.CharField(max_length = 100)
+    phone_number = models.IntegerField()
+    location = models.CharField(max_length = 100)
+    name_of_service_requested = models.CharField(max_length = 100)
+    day_for_the_service = models.DateField()
+    date_service_was_requested = models.DateTimeField(auto_now_add = True, null = True)
+
+    def __str__(self):
+        return self.customer_name
