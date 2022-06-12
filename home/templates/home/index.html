@@ -14,62 +14,321 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="{% static 'css\test\css\bootstrap.min.css' %}">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
   <link rel="shortcut icon" href="{% static 'images/velox.png' %}" />
 
 
   <!-- Style -->
-  <link rel="stylesheet" href="{% static 'css\test\css\style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets\css\style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets\css\home.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/but.css' %}">
+  <script src="https://kit.fontawesome.com/0fb5c1b4e2.js" crossorigin="anonymous"></script>
 
   <title>Home page</title>
 </head>
 
 <body>
-  
-  <nav class="navbar navbar-expand-lg navbar-warning bg-gradient-warning">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-dark">
     <div class="container">
       <img class="navbar-brand " src="{% static 'images/velox.png' %}" alt="" width="3%" height="5%">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-  
+
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+          <li class="nav-item ">
+            <a class="nav-link n-v-c" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link n-v-c" href="#about">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link n-v-c" href="#questions">FAQs</a>
           </li>
         </ul>
-  
+
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle n-v-c" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               Login
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item"  href="{% url 'auth:user_authentication' %}">User</a>              
+              <a class="dropdown-item" href="{% url 'auth:user_authentication' %}" >User</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'auth:user_authentication' %}">Service Provider</a>
             </div>
           </li>
-         
+
         </ul>
       </div>
     </div>
   </nav>
 
   <!-- carosel -->
-  
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/service1.jpg' %}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="font-size:4rem !important ;">WELCOME TO VELOX SERVICES</h5>
+          <p style="font-size:1.5rem !important ;">A place for you to conveniently request for all services.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/service1.jpg' %}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="font-size:4rem !important ;">Second slide label</h5>
+          <p style="font-size:1.5rem !important ;">Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/service1.jpg' %}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="font-size:4rem !important ;">Third slide label</h5>
+          <p style="font-size:1.5rem !important ;">Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
   <!-- carosel -->
+  <!-- about us -->
+  <section id="questions">
+    <div class=" ">
 
-  
+      <div id="cards_landscape_wrap-2">
+
+        <div class="container h3-margin">
+          <h3 class="fw-bolder  fs-1" id="about" style="color:rgb(64,77,93);">Popular Services</h3>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+              <a href="">
+                <div class="card-flyer">
+                  <div class="text-box">
+                    <div class="image-box">
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOf7u3wj3HmHJgl27applXSnVj_ZRswU07lw&usqp=CAU" alt="Samuel Afotey Laryea" />
+                    </div>
+                    <div class="text-container">
+                      <h6>Security Services</h6>
+                      <p>Software Engineer and a Cybersecurity expect.</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+              <a href="">
+                <div class="card-flyer">
+                  <div class="text-box">
+                    <div class="image-box">
+                      <img src="https://st2.depositphotos.com/2219414/9520/v/600/depositphotos_95205080-stock-illustration-electrical-equipment-repair-services.jpg" alt="Priscilla Bonsu" />
+                    </div>
+                    <div class="text-container">
+                      <h6>Repair Services</h6>
+                      <p>Software Engineer and an instructor at cyberghana</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+              <a href="">
+                <div class="card-flyer">
+                  <div class="text-box">
+                    <div class="image-box">
+                      <img src="https://mipriinc.com/wp-content/uploads/2020/06/deep-house-cleaning-1-1024x536.jpg" alt="Leticia Kabu" />
+                    </div>
+
+                    <div class="text-container">
+                      <h6>House Help Services</h6>
+                      <p>Software Engineer and an instructor at cyberghana</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 ">
+              <a href="">
+                <div class="card-flyer">
+                  <div class="text-box">
+                    <div class="image-box">
+                      <img src="https://media.istockphoto.com/photos/janitor-cleaning-white-desk-in-office-picture-id1146964990?k=20&m=1146964990&s=612x612&w=0&h=dPc7V5zbm5a2tgzJLpjlSgyltDmUxiK-tXl2drMyj7g=" alt="Tornyie Michael" />
+                    </div>
+                    <div class="text-container">
+                      <h6>Office Help Services</h6>
+                      <p>Frontend web developer and python programmer</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- about us -->
+  <!-- faq -->
+  <section id="questions" class="mb-10" >
+    <div class="container">
+        <h3 class="fw-bolder text-center fs-1 mb-5" id="FAQS" style="color:rgb(64,77,93);">Frequently Asked Questions</h3>
+        <div class="container">
+            <div class="row g-5">
+            <div class="col-md-4  order-md-2 d-flex justify-content-center align-items-center go">
+                <img src="{% static 'assets/images/questions.svg' %}" class="rounded mx-auto d-block img-fluid svg-first" alt="...">
+                </div>
+                <div class="col-md-8  order-md-1">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h1 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                How will I get started?
+                            </button>
+                            </h1>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">You can get started with VerAuth by clicking on the connect button at the Nav bar in order for you to get access to our API </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h1 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                How can I request for a service ?
+                            </button>
+                            </h1>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">You can copy the API script on the connect page and integrate it into your newly built or old webpage.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h1 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                What are the things needed to register as a service provider ?
+                            </button>
+                            </h1>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">You need nothing but the script and internet access to connect verAuth to your website. </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h1 class="accordion-header" id="four">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#four" aria-expanded="false" aria-controls="four">
+                                How secure is my data from imposters ?
+                            </button>
+                            </h1>
+                            <div id="four" class="accordion-collapse collapse" aria-labelledby="four" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Concrete measures have being put in place to make your data secure from any hacker, intruder or imposter. </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                
+            </div>
+        </div> 
+    </div>
+</section>
+  <!-- faq -->
+
+
 </body>
+<!-- footer -->
+<footer class="bg-light text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #3b5998;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #55acee;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #dd4b39;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #ac2bac;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #0082ca;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+      <!-- Github -->
+      <a
+        class="btn btn-primary btn-floating m-1"
+        style="background-color: #333333;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">Velox Services</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- footer -->
 <script src="{% static 'js\test\js\jquery-3.3.1.min.js' %}"></script>
-  <script src="{% static 'js\test\js\popper.min.js' %}"></script>
-  <script src="{% static 'js\test\js\bootstrap.min.js' %}"></script>
-  <script src="{% static 'js\test\js\jquery.sticky.js' %}"></script>
-  <script src="{% static 'js\test\js\main.js' %}"></script>
+<script src="{% static 'js\test\js\popper.min.js' %}"></script>
+<script src="{% static 'js\test\js\bootstrap.min.js' %}"></script>
+<script src="{% static 'js\test\js\jquery.sticky.js' %}"></script>
+<script src="{% static 'js\test\js\main.js' %}"></script>
+
 </html>
