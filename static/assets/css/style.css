@@ -5396,7 +5396,8 @@ textarea.form-control-lg {
         position: absolute; }
       .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 0.5rem;
-        padding-left: 0.5rem; }
+        padding-left: 0.5rem;
+      font-size: 1.2rem; }
     .navbar-expand-lg .navbar-nav-scroll {
       overflow: visible; }
     .navbar-expand-lg .navbar-collapse {
@@ -11256,8 +11257,9 @@ address p {
 /* Miscellanoeous */
 body,
 html {
-  overflow-x: hidden;
-  padding-right: 0 !important; }
+  /* overflow-x: hidden;
+  padding-right: 0 !important; */
+ }
 
 *:-moz-full-screen,
 *:-webkit-full-screen,
@@ -13732,7 +13734,7 @@ dl {
   -moz-transition: background 0.25s ease;
   -ms-transition: background 0.25s ease; }
   .navbar .navbar-brand {
-    width: 110px; }
+    width: 50px; }
   .navbar .navbar-brand-wrapper {
     transition: width 0.25s ease, background 0.25s ease;
     -webkit-transition: width 0.25s ease, background 0.25s ease;

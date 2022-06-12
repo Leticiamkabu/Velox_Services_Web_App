@@ -77,7 +77,7 @@ def register_user_view(request):
 
     else:
         pass
-    return render(request,'login/login_user.html')
+    return render(request,'register/signup_user.html')
 
 
 
