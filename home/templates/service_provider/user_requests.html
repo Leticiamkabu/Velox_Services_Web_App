@@ -22,19 +22,22 @@
                 </tr>
               </thead>
               <tbody>
+                  {% for user_request in requests %}
                 <tr>
-                  <td>
+                  <!-- <td>
                     <img src="{% static 'assets/images/faces/face1.jpg' %}" class="me-2" alt="image"> David Grey
-                  </td>
-                  <td> 0552285103 </td>
-                  <td> Dec 5, 2017 </td>
-                  <td> Cook </td>
+                  </td> -->
+                  <td> {{user_request.customer_name}} </td>
+                  <td> {{user_request.phone_number}} </td>
+                  <td> {{user_request.day_for_the_service}} </td>
+                  <td> {{user_request.name_of_service_requested}} </td>
                   <td> WD-12345 </td>
                   <td>
                     <label class="badge badge-gradient-success">DONE</label>
                   </td>
                 </tr>
-                <tr>
+                {% endfor %}
+                <!-- <tr>
                     <td>
                       <img src="{% static 'assets/images/faces/face1.jpg' %}" class="me-2" alt="image"> David Grey
                     </td>
@@ -69,7 +72,7 @@
                     <td>
                       <label class="badge badge-gradient-success">DONE</label>
                     </td>
-                  </tr>
+                  </tr> -->
               </tbody>
             </table>
           </div>

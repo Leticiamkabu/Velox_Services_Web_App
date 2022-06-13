@@ -26,7 +26,10 @@
                   data-bs-target="#request_service_form">
                   <button type="button" href="#">Request Service</button>
                 </a>
-                <button type="button" onclick="alert('You pressed the button!')" href="">View Service Details</button>
+                <a class="nav-link" style="cursor: pointer;" data-bs-toggle="modal"
+                  data-bs-target="#view_service_details_form">
+                  <button type="button"  href="">View Service Details</button>
+                </a>
               </div>
 
             </div>
@@ -81,7 +84,37 @@
               </div>
             </div>
 
+            <!-- Modal for view service detail -->
+            <div class="modal fade" id="view_service_details_form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content" style="width: 130%;">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Service Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                  <div class="card-body">
+                  <hr>
+                    <label>Service name</label>
+                    <div class = "border p-1"> {{service_view.service_name}}</div>
+                    <label>Image of service</label>
+                    <div class = "border p-1"> {{display_service.service_name}}</div>
+                    <label>Service Discription</label>
+                    <div class = "border p-1"> {{display_service.service_name}}</div>
+    
+                    <!-- <h2 class="title">Ad Registration</h2> -->
+                    <h4>fhj{{display_service.service_name}}</h4>
+                    <!-- <img src="{{service_view.images.url }}" class="img-thumbnail" alt="Cinque Terre" width="304" height="236"> -->
 
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
             <div class="d-flex mt-5 align-items-top">
               <img src="{% static 'assets/images/faces/face3.jpg' %}" class="img-sm rounded-circle me-3" alt="image">

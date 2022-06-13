@@ -1,7 +1,9 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect,get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from .models import *
+from authentication.models import *
 from .forms import *
+from authentication.forms import *
 from django.contrib import messages
 
 # from .models import Movie
@@ -53,6 +55,14 @@ def service_requested_view(request):
     }
     return render(request, 'user/service_requested.html', context)
 
+def view_service_details_view(request, id ):
+    display_service = Create_Service.objects.get(id = id)
+    print(display_service.id)
+
+    context = {
+        'display_service': display_service,
+    }
+    return render(request, 'user/user_dashboard_page.html', context)
 
 def user_profile_view(request):
     if request.method == 'POST':
@@ -73,7 +83,36 @@ def delete_user_request_view(request, id = 0):
 
     service_requested.delete()
 
-    return render(request,'user/service_requested.html')
+    service_view = Create_Service.objects.all()
+
+    request_form = Request_ServiceForm()
+    if request.method == 'POST':
+        request_form = Request_ServiceForm(request.POST, request.FILES)
+
+    if request_form.is_valid():
+    #this saves the form
+        request_form.save()
+    # this refreshes the form
+        return redirect('/user_dashboard')
+
+    else:
+        print("\n\n\n\n\n\n")
+        print(request_form.errors)
+
+    for i in request_form:
+        print(i.label)
+        print(i.errors)
+    # dddd = service_view.id
+
+    context = {
+        'service_view': service_view,
+        'request_form': request_form,
+        # 'dddd': dddd,
+    }
+    
+    return render(request,'user/user_dashboard_page.html', context)
+
+    
 
 
 # service provider section

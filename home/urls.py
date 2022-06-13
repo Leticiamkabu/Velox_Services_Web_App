@@ -13,7 +13,8 @@ urlpatterns = [
     path('service_requested_dashboard/',service_requested_view, name = "service_requested"),
     path('user_profile/',user_profile_view, name = "user_profile"),
     path('user_request_deleted/<int:id>/',delete_user_request_view, name = "delete_user_request"),
-
+    path('service detail/<int:id>/',view_service_details_view, name = "view_service_details"),
+    
     # service provider section
     path('service_provider_dashboard/',service_provider_dashboard_view, name = "service_provider_dashboard"),
     path('all_services/',all_services, name = "all_services"),
