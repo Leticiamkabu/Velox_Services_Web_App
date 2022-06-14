@@ -191,6 +191,7 @@ def all_services(request):
 def user_requests(request):
     #do this after you deal with the user requests section
     # count_user_request = 
+    requests = Request_service.objects.all()
     form = Create_ServiceForm()
     if request.method == 'POST':
         form = Create_ServiceForm(request.POST, request.FILES)
@@ -206,8 +207,13 @@ def user_requests(request):
             for i in form:
                 print(i.label)
                 print(i.errors)
+
+    context = {
+        'requests': requests,
+        'form': form,
+    }
     
-    return render(request, 'service_provider/user_requests.html',{'form':form})
+    return render(request, 'service_provider/user_requests.html', context)
 
 def service_provider_profile(request):
     if request.method == 'POST':
